@@ -4,10 +4,10 @@
 		<description>PruebaPrimeFaces</description>
 		<portlet-name>PruebaPrimeFaces</portlet-name>
 		<display-name>PruebaPrimeFaces</display-name>
-		<portlet-class>main.uniovi.innova.VisitsPortlet</portlet-class>
+		<portlet-class>main.uniovi.innova.PrimeFacesPortlet</portlet-class>
 		<init-param>
-			<name>view-jsp</name>
-			<value>/html/view.jsp</value>
+			<name></name>
+			<value>/views/index.xhtml</value>
 		</init-param>
 		<expiration-cache>0</expiration-cache>
 		<supports>
@@ -19,4 +19,6 @@
 			<short-title>PruebaPrimeFaces</short-title>
 		</portlet-info>
 	</portlet>
+	
+	
 </portlet-app>

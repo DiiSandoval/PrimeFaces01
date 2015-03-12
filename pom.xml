@@ -26,28 +26,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	<repositories>
-		<!-- Repositorio de Maven de JBoss -->
-		<repository>
-			<id>maven2-repository.jboss.com</id>
-			<name>Jboss Repository for Maven</name>
-			<url>http://repository.jboss.com/maven2</url>
-		</repository>
-		<!-- Repositorio con el API y la implementación de JSF 2 -->
-		<repository>
-			<id>maven2-repository.dev.java.net</id>
-			<name>Java.net Repository for Maven</name>
-			<url>http://download.java.net/maven/2</url>
-		</repository>
-		<!-- Repositorio de Primefaces -->
-		<repository>
-			<id>prime-repo</id>
-			<name>Prime Technology Maven Repository</name>
-			<url>http://repository.prime.com.tr/</url>
-			<layout>default</layout>
-		</repository>
-	</repositories>
-
 	<dependencies>
 		<dependency>
 			<groupId>javax.portlet</groupId>
@@ -66,11 +44,6 @@
 			<version>2.0.2-b10</version>
 		</dependency>
 		<!-- Librerías de Primefaces -->
-		<dependency>
-			<groupId>org.primefaces</groupId>
-			<artifactId>primefaces</artifactId>
-			<version>2.0.2</version>
-		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -173,6 +146,15 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.14</version>
 		</dependency>
+		
+		<!-- Librerías de Primefaces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>4.0</version>
+		</dependency>
+		
+		
 	</dependencies>
 	<properties>
 		<project.http.version>1.19.0</project.http.version>
