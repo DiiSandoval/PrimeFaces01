@@ -1,23 +1,15 @@
-package main.uniovi.innova;
+package main.uniovi.innova.classes;
 
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
-
-
 @ManagedBean
 public class SelectOneBean implements Serializable {
+	private static final long serialVersionUID = -5948876647143416428L;
 	private String option;   
     private Theme theme; 
     private List<Theme> themes;

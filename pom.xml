@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>PruebaPrimeFaces</groupId>
-	<artifactId>PruebaPrimeFaces</artifactId>
+	<groupId>PruebaPrimeFaces01</groupId>
+	<artifactId>PruebaPrimeFaces01</artifactId>
 	<version>1</version>
 	<packaging>war</packaging>
-	<name>PruebaPrimeFaces</name>
+	<name>PruebaPrimeFaces01</name>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -85,7 +85,7 @@
 			<version>5.2.3</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>com.google.apis</groupId>
 			<artifactId>google-api-services-analytics</artifactId>
 			<version>v3-rev98-1.19.0</version>
@@ -94,7 +94,7 @@
 			<groupId>com.google.http-client</groupId>
 			<artifactId>google-http-client-jackson2</artifactId>
 			<version>${project.http.version}</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>com.google.oauth-client</groupId>
 			<artifactId>google-oauth-client-jetty</artifactId>

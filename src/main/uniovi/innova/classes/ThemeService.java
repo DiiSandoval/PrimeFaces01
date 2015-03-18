@@ -1,4 +1,4 @@
-package main.uniovi.innova;
+package main.uniovi.innova.classes;
 
 import java.util.List;
 
