@@ -1,0 +1,28 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head />
+	<h:body>
+		<div id="inicio" class="gestionPfe">
+			<h:form>
+    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+        <h:outputText value="Platform:" />
+        <p:selectOneButton value="#{selectOneView.option}">
+            <f:selectItem itemLabel="Hola" itemValue="Hola" />
+            <f:selectItem itemLabel="Adios" itemValue="Adios" />
+            <f:selectItem itemLabel="Hasta luego" itemValue="Hasta luego" />
+        </p:selectOneButton>
+ 
+        <p:commandButton value="Submit" update="display" icon="ui-icon-check" />
+        <p:spacer />
+ 
+        <h:outputText value="Selected:" />
+        <h:outputText id="display" value="#{selectOneView.option}" style="font-weight: bold" />
+    </h:panelGrid>
+</h:form>
+		</div>
+	</h:body>
+</f:view>
