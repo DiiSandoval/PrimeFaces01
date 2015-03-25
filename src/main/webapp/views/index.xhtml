@@ -15,12 +15,15 @@
 				</h:selectOneMenu>
 				<p:separator />
 			</h:form>
+			
+			<h:outputText value="VISITAAAAAAAAAAAAAAAAAAAAAS : #{visitsPortletView.visitasPrueba}" />
+			
 			<h:form>
 				<h:panelGrid columns="3">
 					<p:fieldset legend="Start Date" style="margin-bottom:20px">
 						<h:outputLabel for="date_start" value="#{selectorView.text3}" />
 						<p:message for="txt1" />
-						<h:outputText value="Dayitooooo : " />
+						<h:outputText value="Day: " />
 						<h:selectOneMenu id="txt1" value="#{selectorView.text3}"
 							required="true" label="Text 1">
 							<f:selectItems value="#{visitsPortletView.days}" />

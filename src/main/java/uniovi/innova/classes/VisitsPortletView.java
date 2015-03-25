@@ -11,6 +11,7 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import uniovi.innova.classes.factories.Factory;
+import uniovi.innova.classes.services.IGAService;
 import uniovi.innova.classes.services.IPortalesService;
 
 @ManagedBean
@@ -18,12 +19,16 @@ public class VisitsPortletView {
 	protected IPortalesService portalService;
 	protected BeanFactory factory;
 	protected Factory factoryService;
+	protected IGAService gaServiceNewData;
+	protected IGAService gaServiceOldData;
 
 	private String portal;
 	private Map<String, String> portales;
 	private List<Integer> days;
 	private List<Integer> months;
 	private List<Integer> years;
+	private int visitasPrueba;
+	private String id = "UA-376062-58";
 
 	@PostConstruct
 	public void init() {
@@ -32,6 +37,13 @@ public class VisitsPortletView {
 		portalService = factoryService.getServicePortales();
 		portales = portalService.getPortales();
 		prepareDateSelects();
+		gaServiceNewData = factoryService.getServiceGoogleAnalyticsNewData();
+		gaServiceOldData = factoryService.getServiceGoogleAnalyticsOldData();
+		gaServiceNewData.setUA(id);
+		setVisitasPrueba(gaServiceNewData
+				.numOfVisitsBetweenTwoDates(id, 12, 11,
+						2013, 13, 11, 2015));
+		
 
 	}
 
@@ -88,6 +100,14 @@ public class VisitsPortletView {
 
 	public void setYears(List<Integer> years) {
 		this.years = years;
+	}
+
+	public int getVisitasPrueba() {
+		return visitasPrueba;
+	}
+
+	public void setVisitasPrueba(int visitasPrueba) {
+		this.visitasPrueba = visitasPrueba;
 	}
 
 }
