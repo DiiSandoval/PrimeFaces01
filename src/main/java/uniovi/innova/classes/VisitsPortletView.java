@@ -7,15 +7,12 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
-
-
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import uniovi.innova.classes.factories.Factory;
 import uniovi.innova.classes.services.IGAService;
 import uniovi.innova.classes.services.IPortalesService;
-import uniovi.innova.classes.services.implementation.util.DateFormat;
 
 @ManagedBean
 public class VisitsPortletView {
@@ -24,21 +21,14 @@ public class VisitsPortletView {
 	protected Factory factoryService;
 	protected IGAService gaServiceNewData;
 	protected IGAService gaServiceOldData;
-	protected IGAService gaService;
 
 	private String portal;
 	private Map<String, String> portales;
 	private List<Integer> days;
 	private List<Integer> months;
 	private List<Integer> years;
+	private int visitasPrueba;
 	private String id = "UA-376062-58";
-	private int day_start;
-	private int month_start;
-	private int year_start;
-	private int day_end;
-	private int month_end;
-	private int year_end;
-	private int numVisitas;
 
 	@PostConstruct
 	public void init() {
@@ -50,71 +40,11 @@ public class VisitsPortletView {
 		gaServiceNewData = factoryService.getServiceGoogleAnalyticsNewData();
 		gaServiceOldData = factoryService.getServiceGoogleAnalyticsOldData();
 		gaServiceNewData.setUA(id);
+		setVisitasPrueba(gaServiceNewData
+				.numOfVisitsBetweenTwoDates(id, 12, 11,
+						2013, 13, 11, 2015));
+		
 
-		if (DateFormat.isFechaActual(day_start, month_start, year_start, day_end,
-				month_end, year_end))
-			gaService = gaServiceNewData;
-		else
-			gaService = gaServiceOldData;
-
-		String id = "UA-376062-58";
-		gaService.setUA(id);
-
-
-	}
-	
-	public void mostrarDatos(){
-		numVisitas = gaService
-				.numOfVisitsBetweenTwoDates(id, day_start, month_start,
-						year_start, day_end, month_end, year_end);
-	}
-
-	public int getDay_start() {
-		return day_start;
-	}
-
-	public void setDay_start(int day_start) {
-		this.day_start = day_start;
-	}
-
-	public int getMonth_start() {
-		return month_start;
-	}
-
-	public void setMonth_start(int month_start) {
-		this.month_start = month_start;
-	}
-
-	public int getYear_start() {
-		return year_start;
-	}
-
-	public void setYear_start(int year_start) {
-		this.year_start = year_start;
-	}
-
-	public int getDay_end() {
-		return day_end;
-	}
-
-	public void setDay_end(int day_end) {
-		this.day_end = day_end;
-	}
-
-	public int getMonth_end() {
-		return month_end;
-	}
-
-	public void setMonth_end(int month_end) {
-		this.month_end = month_end;
-	}
-
-	public int getYear_end() {
-		return year_end;
-	}
-
-	public void setYear_end(int year_end) {
-		this.year_end = year_end;
 	}
 
 	private void prepareDateSelects() {
@@ -172,13 +102,12 @@ public class VisitsPortletView {
 		this.years = years;
 	}
 
-	public int getNumVisitas() {
-		return numVisitas;
+	public int getVisitasPrueba() {
+		return visitasPrueba;
 	}
 
-	public void setNumVisitas(int numVisitas) {
-		this.numVisitas = numVisitas;
+	public void setVisitasPrueba(int visitasPrueba) {
+		this.visitasPrueba = visitasPrueba;
 	}
-
 
 }

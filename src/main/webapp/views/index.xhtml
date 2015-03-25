@@ -9,31 +9,35 @@
 		<div id="inicio" class="gestionPfe">
 			<h3 style="margin-top: 0">Portales</h3>
 			<h:form>
-				<h:selectOneMenu id="portal" value="#{visitsPortletView.portal}"
+				<h:selectOneMenu id="txt01" value="#{visitsPortletView.portal}"
 					required="true" label="Portales">
 					<f:selectItems value="#{visitsPortletView.portales}" />
 				</h:selectOneMenu>
 				<p:separator />
 			</h:form>
 			
-			<p:spacer />
+			<h:outputText value="VISITAAAAAAAAAAAAAAAAAAAAAS : #{visitsPortletView.visitasPrueba}" />
 			
 			<h:form>
 				<h:panelGrid columns="3">
 					<p:fieldset legend="Start Date" style="margin-bottom:20px">
+						<h:outputLabel for="date_start" value="#{selectorView.text3}" />
+						<p:message for="txt1" />
 						<h:outputText value="Day: " />
-						<h:selectOneMenu id="day_start" value="#{visitsPortletView.day_start}"
-							required="true">
+						<h:selectOneMenu id="txt1" value="#{selectorView.text3}"
+							required="true" label="Text 1">
 							<f:selectItems value="#{visitsPortletView.days}" />
 						</h:selectOneMenu>
-						<h:outputText value=" Month : " />
-						<h:selectOneMenu id="month_start" value="#{visitsPortletView.month_start}"
-							required="true" >
+						<p:message for="txt2" />
+						<h:outputText value="Month : " />
+						<h:selectOneMenu id="txt2" value="#{selectorView.text3}"
+							required="true" label="Text 2">
 							<f:selectItems value="#{visitsPortletView.months}" />
 						</h:selectOneMenu>
+						<p:message for="txt3" />
 						<h:outputText value="Year: " />
-						<h:selectOneMenu id="year_start" value="#{visitsPortletView.year_start}"
-							required="true">
+						<h:selectOneMenu id="txt3" value="#{selectorView.text3}"
+							required="true" label="Text 3">
 							<f:selectItems value="#{visitsPortletView.years}" />
 						</h:selectOneMenu>
 					</p:fieldset>
@@ -41,30 +45,31 @@
 				</h:panelGrid>
 				<h:panelGrid columns="3">
 					<p:fieldset legend="End Date" style="margin-bottom:20px">
+						<h:outputLabel for="date_end" value="#{selectorView.text3}" />
+						<p:message for="txt4" />
 						<h:outputText value="Day : " />
-						<h:selectOneMenu id="day_end" value="#{visitsPortletView.day_end}"
-							required="true">
+						<h:selectOneMenu id="txt4" value="#{selectorView.text3}"
+							required="true" label="Text 4">
 							<f:selectItems value="#{visitsPortletView.days}" />
 						</h:selectOneMenu>
-						<h:outputText value=" Month : " />
-						<h:selectOneMenu id="month_end" value="#{visitsPortletView.month_end}"
-							required="true">
+						<p:message for="txt5" />
+						<h:outputText value="Month : " />
+						<h:selectOneMenu id="txt5" value="#{selectorView.text3}"
+							required="true" label="Text 5">
 							<f:selectItems value="#{visitsPortletView.months}" />
 						</h:selectOneMenu>
+						<p:message for="txt6" />
 						<h:outputText value="Year: " />
-						<h:selectOneMenu id="year_end" value="#{visitsPortletView.year_end}"
-							required="true">
+						<h:selectOneMenu id="txt6" value="#{selectorView.text3}"
+							required="true" label="Text 6">
 							<f:selectItems value="#{visitsPortletView.years}" />
 						</h:selectOneMenu>
 					</p:fieldset>
 					<p:separator />
-				</h:panelGrid>			
-					<p:spacer />
- 			 <p:commandButton action="#{visitsPortletView.mostrarDatos}" value="Mostrar" update="display" icon="ui-icon-check" />
-        <p:spacer />
-        	<p:separator />
-        <h:outputText id="display" value="Numero de visitas: #{visitsPortletView.numVisitas}" style="font-weight: bold" />
-			</h:form> 
+				</h:panelGrid>
+
+
+			</h:form>
 		</div>
 	</h:body>
 </f:view>
