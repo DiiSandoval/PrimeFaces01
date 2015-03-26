@@ -1,4 +1,4 @@
-package uniovi.innova.classes;
+package uniovi.innova.classes.model;
 
 public class Pais {
 
