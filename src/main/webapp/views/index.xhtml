@@ -6,6 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 	<h:head />
 	<h:body>
+
 		<div id="inicio" class="gestionPfe">
 			<h3 style="margin-top: 0">Portales</h3>
 			<h:form>
@@ -65,14 +66,19 @@
 					icon="ui-icon-check" />
 				<p:spacer />
 				<p:separator />
-				<h:outputText id="display"
-					value="Numero de visitas: #{visitsPortletView.operativos}"
-					style="font-weight: bold" />
-				<h:outputText id="display2"
-					value="Numero de visitas: #{visitsPortletView.paises}"
-					style="font-weight: bold" />
+
+				<p:dataTable var="pais" id="display2" value="#{visitsPortletView.paises2}">
+					<p:column headerText="Country name">
+						<h:outputText value="#{pais.nombre}" />
+					</p:column>
+
+					<p:column headerText="Visits">
+						<h:outputText value="#{pais.visitas}" />
+					</p:column>
+				</p:dataTable>
 			</h:form>
 		</div>
+
 
 	</h:body>
 </f:view>
