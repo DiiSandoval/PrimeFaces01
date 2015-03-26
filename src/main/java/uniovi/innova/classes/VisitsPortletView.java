@@ -26,6 +26,10 @@ public class VisitsPortletView {
 
 	private String portal;
 	private Map<String, String> portales;
+	private Map<String,String> paises;
+	private Map<String, String> operativos;
+	
+
 	private List<Integer> days;
 	private List<Integer> months;
 	private List<Integer> years;
@@ -65,6 +69,13 @@ public class VisitsPortletView {
 				month_start, year_start, day_end, month_end, year_end);
 		System.out.println("Date start: " + day_start + month_start + year_start);
 		System.out.println("Date end: " + day_end + month_end + year_end);
+		paises = gaService.getVisitsByCountry(id, day_start,
+				month_start, year_start, day_end, month_end, year_end);
+		operativos = gaService.getVisitsBySSOO(id, day_start,
+				month_start, year_start, day_end, month_end, year_end);
+		System.out.println("Paises: " + paises);
+		System.out.println("Operativos: " + operativos);
+		
 	}
 	
 	private void prepareDateSelects() {
@@ -181,6 +192,20 @@ public class VisitsPortletView {
 	public void setNumVisitas(int numVisitas) {
 		this.numVisitas = numVisitas;
 	}
+	public Map<String, String> getPaises() {
+		return paises;
+	}
 
+	public void setPaises(Map<String, String> paises) {
+		this.paises = paises;
+	}
+
+	public Map<String, String> getOperativos() {
+		return operativos;
+	}
+
+	public void setOperativos(Map<String, String> operativos) {
+		this.operativos = operativos;
+	}
 
 }
