@@ -32,8 +32,9 @@ public class VisitsPortletView {
 
 	private String portal;
 	private Map<String, String> portales;
-	private Map<String, String> paises;
+	private Map<String,String> paises;
 	private Map<String, String> operativos;
+	
 
 	private List<Integer> days;
 	private List<Integer> months;
@@ -106,7 +107,7 @@ public class VisitsPortletView {
 			operativosList.add(ssoo);
 		}
 	}
-
+	
 	private void prepareDateSelects() {
 		days = new ArrayList<Integer>();
 		for (int i = 1; i <= 31; i++) {
@@ -122,13 +123,6 @@ public class VisitsPortletView {
 		years.add(2015);
 	}
 
-	  public void preProcessPDF(Object document) {
-	      Document pdf = (Document) document;
-	      pdf.open();
-	      pdf.setPageSize(PageSize.A4.rotate());
-	    }
-	
-	// ------------------------------------------------------------
 
 	public int getDay_start() {
 		return day_start;
@@ -178,6 +172,8 @@ public class VisitsPortletView {
 		this.year_end = year_end;
 	}
 
+
+
 	public String getPortal() {
 		return portal;
 	}
@@ -225,7 +221,6 @@ public class VisitsPortletView {
 	public void setNumVisitas(int numVisitas) {
 		this.numVisitas = numVisitas;
 	}
-
 	public Map<String, String> getPaises() {
 		return paises;
 	}
