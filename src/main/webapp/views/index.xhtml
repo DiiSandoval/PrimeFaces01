@@ -62,12 +62,12 @@
 				</h:panelGrid>
 				<p:spacer />
 				<p:commandButton action="#{visitsPortletView.mostrarDatos}"
-					value="Mostrar" update="display,display2"
+					value="Mostrar" update="display"
 					icon="ui-icon-check" />
 				<p:spacer />
 				<p:separator />
 
-				<p:dataTable var="pais" id="display2" value="#{visitsPortletView.paises2}">
+				<p:dataTable var="pais" id="display" value="#{visitsPortletView.paises2}">
 					<p:column headerText="Country name">
 						<h:outputText value="#{pais.nombre}" />
 					</p:column>
