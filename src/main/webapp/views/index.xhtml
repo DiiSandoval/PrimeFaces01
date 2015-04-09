@@ -6,6 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 	<h:head />
 	<h:body>
+
 		<div id="inicio" class="gestionPfe">
 			<h3 style="margin-top: 0">Portales</h3>
 			<h:form>
@@ -60,59 +61,24 @@
 					<p:separator />
 				</h:panelGrid>
 				<p:spacer />
-			<!-- 	<p:commandButton action="#{visitsPortletView.mostrarDatos}"
-					value="Mostrar" update="display,display2" icon="ui-icon-check" /> -->
+				<p:commandButton action="#{visitsPortletView.mostrarDatos}"
+					value="Mostrar" update="display,display2"
+					icon="ui-icon-check" />
 				<p:spacer />
 				<p:separator />
-<<<<<<< HEAD
-						<p:dataTable var="pais" id="display"
-							value="#{visitsPortletView.paisesList}">
-							<p:column headerText="Country name">
-								<h:outputText value="#{pais.nombre}" />
-							</p:column>
 
-							<p:column headerText="Visits">
-								<h:outputText value="#{pais.visitas}" />
-							</p:column>
-						</p:dataTable>
-					
-						<p:dataTable var="op" id="display2"
-							value="#{visitsPortletView.operativosList}">
-							<p:column headerText="SSOO version">
-								<h:outputText value="#{op.nombre}" />
-							</p:column>
+				<p:dataTable var="pais" id="display2" value="#{visitsPortletView.paises2}">
+					<p:column headerText="Country name">
+						<h:outputText value="#{pais.nombre}" />
+					</p:column>
 
-							<p:column headerText="Visits">
-								<h:outputText value="#{op.visitas}" />
-							</p:column>
-						</p:dataTable>
-
-				</p:tabView>
-
-				<!-- 				<h3>Export Page Data Only</h3>
-				<h:commandLink>
-					<p:graphicImage name="/resources/pdf.png" />
-					<p:dataExporter type="pdf" target="display" fileName="export"/>
-				</h:commandLink> -->
-				<p:separator />
-				<h:commandLink title="Export">
-					<p:graphicImage value="/resources/pdf.png" style="border:0"
-						width="40" height="40" />
-					<p:dataExporter target="display2" type="pdf" fileName="name"
-						encoding="windows-1250" />
-				</h:commandLink>
-
-
-=======
-				<h:outputText id="display"
-					value="Numero de visitas: #{visitsPortletView.operativos}"
-					style="font-weight: bold" />
-				<h:outputText id="display2"
-					value="Numero de visitas: #{visitsPortletView.paises}"
-					style="font-weight: bold" />
->>>>>>> parent of cae84de... Country data presents as a table
+					<p:column headerText="Visits">
+						<h:outputText value="#{pais.visitas}" />
+					</p:column>
+				</p:dataTable>
 			</h:form>
 		</div>
+
 
 	</h:body>
 </f:view>

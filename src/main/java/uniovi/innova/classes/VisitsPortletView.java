@@ -11,11 +11,7 @@ import javax.faces.bean.ManagedBean;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.lowagie.text.PageSize;
-import com.lowagie.text.Document;
-
 import uniovi.innova.classes.factories.Factory;
-import uniovi.innova.classes.model.Operativo;
 import uniovi.innova.classes.model.Pais;
 import uniovi.innova.classes.services.IGAService;
 import uniovi.innova.classes.services.IPortalesService;
@@ -32,9 +28,8 @@ public class VisitsPortletView {
 
 	private String portal;
 	private Map<String, String> portales;
-	private Map<String,String> paises;
+	private Map<String, String> paises;
 	private Map<String, String> operativos;
-	
 
 	private List<Integer> days;
 	private List<Integer> months;
@@ -48,8 +43,15 @@ public class VisitsPortletView {
 	private int year_end;
 	private int numVisitas;
 
-	private List<Pais> paisesList;
-	private List<Operativo> operativosList;
+	private List<Pais> paises2;
+
+	public List<Pais> getPaises2() {
+		return paises2;
+	}
+
+	public void setPaises2(List<Pais> paises2) {
+		this.paises2 = paises2;
+	}
 
 	@PostConstruct
 	public void init() {
@@ -73,41 +75,30 @@ public class VisitsPortletView {
 
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void mostrarDatos() {
 		numVisitas = gaService.numOfVisitsBetweenTwoDates(id, day_start,
 				month_start, year_start, day_end, month_end, year_end);
-		
+		System.out.println("Date start: " + day_start + month_start
+				+ year_start);
+		System.out.println("Date end: " + day_end + month_end + year_end);
 		paises = gaService.getVisitsByCountry(id, day_start, month_start,
 				year_start, day_end, month_end, year_end);
 		operativos = gaService.getVisitsBySSOO(id, day_start, month_start,
 				year_start, day_end, month_end, year_end);
+		System.out.println("Paises: " + paises);
+		System.out.println("Operativos: " + operativos);
 
-		rellenarPaises();
-		rellenarOperativos();
-
-	}
-	
-	@SuppressWarnings("rawtypes")
-	private void rellenarPaises() {
-		paisesList= new ArrayList<Pais>();
+		paises2= new ArrayList<Pais>();
 		Iterator it = paises.entrySet().iterator();
 		while (it.hasNext()) {
 			Map.Entry e = (Map.Entry) it.next();
 			Pais pais = new Pais((String) e.getKey(), (String) e.getValue());
-			paisesList.add(pais);
+			paises2.add(pais);
 		}
+
 	}
-	@SuppressWarnings("rawtypes")
-	private void rellenarOperativos() {
-		operativosList = new ArrayList<Operativo>();
-		Iterator it = operativos.entrySet().iterator();
-		while (it.hasNext()) {
-			Map.Entry e = (Map.Entry) it.next();
-			Operativo ssoo = new Operativo("Android " + (String) e.getKey(), (String) e.getValue());
-			operativosList.add(ssoo);
-		}
-	}
-	
+
 	private void prepareDateSelects() {
 		days = new ArrayList<Integer>();
 		for (int i = 1; i <= 31; i++) {
@@ -123,6 +114,7 @@ public class VisitsPortletView {
 		years.add(2015);
 	}
 
+	// ------------------------------------------------------------
 
 	public int getDay_start() {
 		return day_start;
@@ -172,8 +164,6 @@ public class VisitsPortletView {
 		this.year_end = year_end;
 	}
 
-
-
 	public String getPortal() {
 		return portal;
 	}
@@ -221,6 +211,7 @@ public class VisitsPortletView {
 	public void setNumVisitas(int numVisitas) {
 		this.numVisitas = numVisitas;
 	}
+
 	public Map<String, String> getPaises() {
 		return paises;
 	}
@@ -235,22 +226,6 @@ public class VisitsPortletView {
 
 	public void setOperativos(Map<String, String> operativos) {
 		this.operativos = operativos;
-	}
-
-	public List<Pais> getPaisesList() {
-		return paisesList;
-	}
-
-	public void setPaisesList(List<Pais> paisesList) {
-		this.paisesList = paisesList;
-	}
-
-	public List<Operativo> getOperativosList() {
-		return operativosList;
-	}
-
-	public void setOperativosList(List<Operativo> operativosList) {
-		this.operativosList = operativosList;
 	}
 
 }
